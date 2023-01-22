@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import {BrowserRouter, Routes, Link, Route} from 'react-router-dom';
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import { styled, createTheme, ThemeProvider } from '@mui/material/styles';
 import {Box, List} from '@mui/material';
 import { mainListItems } from './components/ListItems';
