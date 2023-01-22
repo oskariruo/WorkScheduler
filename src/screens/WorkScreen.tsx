@@ -54,12 +54,12 @@ export default function WorkScreen() {
       };
 
       const checkItem = (index: any , isChecked: boolean) => {
-      let reference = ref(database, day + '/' + shift + '/' + keys.splice(index)[0]);
-      update(
-        reference, {completed: isChecked}
-      ).then(() => {
-        updateList();
-      })
+        let reference = ref(database, day + '/' + shift + '/' + keys.splice(index)[0]);
+          update(
+            reference, {completed: isChecked}
+          ).then(() => {
+            updateList();
+          })
       }
 
       useEffect(updateList, []);

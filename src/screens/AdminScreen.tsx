@@ -33,6 +33,7 @@ export default function AdminScreen() {
 
     const handleDateChange = (event: SelectChangeEvent) => {
         setDate(event.target.value as string);
+        console.log(date);
       };
 
     const updateList = () => {
@@ -67,6 +68,7 @@ export default function AdminScreen() {
 
     const handleChange = (event: SelectChangeEvent) => {
       setShift(event.target.value as string);
+      console.log(shift);
     };
 
     useEffect(updateList, []);
@@ -115,7 +117,7 @@ export default function AdminScreen() {
             Save
         </Button>
         <Button onClick={() => console.log(time)}>
-            print
+            Print
         </Button>
         <FormControl fullWidth>
           <Select
@@ -124,13 +126,13 @@ export default function AdminScreen() {
               label="Date"
               onChange={handleDateChange}
           >
-            <MenuItem value={0}>Ma</MenuItem>
-            <MenuItem value={1}>Ti</MenuItem>
-            <MenuItem value={2}>Ke</MenuItem>
-            <MenuItem value={3}>To</MenuItem>
-            <MenuItem value={4}>Pe</MenuItem>
-            <MenuItem value={5}>La</MenuItem>
-            <MenuItem value={6}>Su</MenuItem>
+            <MenuItem value={0}>Monday</MenuItem>
+            <MenuItem value={1}>Tuesday</MenuItem>
+            <MenuItem value={2}>Wednesday</MenuItem>
+            <MenuItem value={3}>Thursday</MenuItem>
+            <MenuItem value={4}>Friday</MenuItem>
+            <MenuItem value={5}>Saturday</MenuItem>
+            <MenuItem value={6}>Sunday</MenuItem>
           </Select>
         </FormControl>
         <FormControl fullWidth>
