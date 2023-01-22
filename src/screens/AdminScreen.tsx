@@ -7,7 +7,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import { Box, Grid, TextField, Button, FormControlLabel, Checkbox, Select, SelectChangeEvent, FormControl, MenuItem } from '@mui/material';
 
-import {ref, onValue, remove, orderByChild, equalTo, query, push} from'firebase/database';
+import {ref, onValue, remove, query, push} from'firebase/database';
 import { auth, database } from '../components/firebase-config';
 
 
@@ -47,29 +47,30 @@ export default function AdminScreen() {
         });
       }
 
-      const saveTask = () => {
-        push(
-          ref(database, date + '/' + shift),
-          { 'task': task, 'description': description, 'time': time})
-          .then(() => {
-            updateList();
-          })
-      }
+    const saveTask = () => {
+      push(
+        ref(database, date + '/' + shift),
+        { 'task': task, 'description': description, 'time': time})
+        .then(() => {
+          updateList();
+        })
+    }
 
-      const deleteTask = (index: any) => {
-        let reference = ref(database, date + '/' + shift + '/' + keys.splice(index)[0]);
-        remove(
-            reference
-          ).then(() => {
-            updateList();
-          })
-        }
+    const deleteTask = (index: any) => {
+      let reference = ref(database, date + '/' + shift + '/' + keys.splice(index)[0]);
+      remove(
+        reference
+      ).then(() => {
+        updateList();
+        })
+    }
 
-      const handleChange = (event: SelectChangeEvent) => {
-        setShift(event.target.value as string);
-      };
+    const handleChange = (event: SelectChangeEvent) => {
+      setShift(event.target.value as string);
+    };
 
-      useEffect(updateList, []);
+    useEffect(updateList, []);
+
   return (
     <React.Fragment>
       <Box>
