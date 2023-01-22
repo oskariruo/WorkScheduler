@@ -72,101 +72,100 @@ export default function AdminScreen() {
       useEffect(updateList, []);
   return (
     <React.Fragment>
-
       <Box>
-            <Grid container spacing={2}>
-            <Grid item xs={12} sm={6}>
-                <TextField
-                  name="task"
-                  required
-                  fullWidth
-                  id="task"
-                  label="Task"
-                  onChange={event => setTask(event.target.value as string)}
-                />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  name="description"
-                  required
-                  fullWidth
-                  id="description"
-                  label="Description"
-                  onChange={event => setDescription(event.target.value as string)}
-                />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  required
-                  fullWidth
-                  id="time"
-                  label="Time"
-                  name="time"
-                  onChange={event => setTime(event.target.value as string)}
-                />
-              </Grid>
-            </Grid>
-            <Button
+        <Grid container spacing={2}>
+          <Grid item xs={12} sm={6}>
+            <TextField
+              name="task"
+              required
               fullWidth
-              variant="contained"
-              sx={{ mt: 3, mb: 2 }}
-              onClick={() => saveTask()}
-            >
-              Save
-            </Button>
-            <Button onClick={() => console.log(time)}>
-              print
-            </Button>
-            <FormControl fullWidth>
-             <Select
-    id="demo-simple-select"
-    value={date}
-    label="Date"
-    onChange={handleDateChange}
-  >
-    <MenuItem value={0}>Ma</MenuItem>
-    <MenuItem value={1}>Ti</MenuItem>
-    <MenuItem value={2}>Ke</MenuItem>
-    <MenuItem value={3}>To</MenuItem>
-    <MenuItem value={4}>Pe</MenuItem>
-    <MenuItem value={5}>La</MenuItem>
-    <MenuItem value={6}>Su</MenuItem>
-  </Select>
-</FormControl>
-            <FormControl fullWidth>
-             <Select
-    id="demo-simple-select"
-    value={shift}
-    label="Shift"
-    onChange={() => handleChange}
-  >
-    <MenuItem value={"Morning"}>Aamu</MenuItem>
-    <MenuItem value={"Day"}>Päivä</MenuItem>
-    <MenuItem value={"Evening"}>Ilta</MenuItem>
-  </Select>
-</FormControl>
-          </Box>
+              id="task"
+              label="Task"
+              onChange={event => setTask(event.target.value as string)}
+            />
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <TextField
+              name="description"
+              required
+              fullWidth
+              id="description"
+              label="Description"
+              onChange={event => setDescription(event.target.value as string)}
+            />
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <TextField
+              required
+              fullWidth
+              id="time"
+              label="Time"
+              name="time"
+              onChange={event => setTime(event.target.value as string)}
+            />
+          </Grid>
+        </Grid>
+        <Button
+          fullWidth
+          variant="contained"
+          sx={{ mt: 3, mb: 2 }}
+          onClick={() => saveTask()}
+        >
+            Save
+        </Button>
+        <Button onClick={() => console.log(time)}>
+            print
+        </Button>
+        <FormControl fullWidth>
+          <Select
+              id="simple-select"
+              value={date}
+              label="Date"
+              onChange={handleDateChange}
+          >
+            <MenuItem value={0}>Ma</MenuItem>
+            <MenuItem value={1}>Ti</MenuItem>
+            <MenuItem value={2}>Ke</MenuItem>
+            <MenuItem value={3}>To</MenuItem>
+            <MenuItem value={4}>Pe</MenuItem>
+            <MenuItem value={5}>La</MenuItem>
+            <MenuItem value={6}>Su</MenuItem>
+          </Select>
+        </FormControl>
+        <FormControl fullWidth>
+          <Select
+            id="simple-select"
+            value={shift}
+            label="Shift"
+            onChange={() => handleChange}
+          >
+            <MenuItem value={"Morning"}>Aamu</MenuItem>
+            <MenuItem value={"Day"}>Päivä</MenuItem>
+            <MenuItem value={"Evening"}>Ilta</MenuItem>
+          </Select>
+        </FormControl>
+        </Box>
           <Table size="small">
-        <TableHead>
-          <TableRow>
-            <TableCell>Task</TableCell>
-            <TableCell>Description</TableCell>
-            <TableCell>Time</TableCell>
-            <TableCell>Done</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {items.map((row) => (
-            <TableRow key={row.task}>
-              <TableCell>{row.task}</TableCell>
-              <TableCell>{row.description}</TableCell>
-              <TableCell>{row.time}</TableCell>
-              <TableCell><Checkbox></Checkbox></TableCell>
-              <TableCell><Button onClick={deleteTask}>Delete</Button></TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
+            <TableHead>
+              <TableRow>
+                <TableCell>Task</TableCell>
+                <TableCell>Description</TableCell>
+                <TableCell>Time</TableCell>
+                <TableCell>Done</TableCell>
+                </TableRow>
+            </TableHead>
+            <TableBody>
+              {items.map((row) => (
+                <TableRow key={row.task}>
+                  <TableCell>{row.task}</TableCell>
+                  <TableCell>{row.description}</TableCell>
+                  <TableCell>{row.time}</TableCell>
+                  <TableCell><Checkbox></Checkbox></TableCell>
+                  <TableCell><Button onClick={deleteTask}>Delete</Button></TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
     </React.Fragment>
   );
 }
