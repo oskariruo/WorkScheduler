@@ -1,24 +1,35 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import {BrowserRouter, Routes, Link, Route} from 'react-router-dom';
+import { styled, createTheme, ThemeProvider } from '@mui/material/styles';
+import {Box, List} from '@mui/material';
+import { mainListItems } from './components/ListItems';
+import WorkScreen from './screens/WorkScreen';
+import AccountScreen from './screens/AccountScreen';
+import ADminScreen from './screens/AdminScreen';
 
 function App() {
+
+  const mdTheme = createTheme();
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+      <ThemeProvider theme={mdTheme}>
+            <Box sx={{ display: 'flex' }}>
+            <List component="nav">
+            {mainListItems}
+          </List>
+            </Box>
+        </ThemeProvider>
+
+        <Routes>
+                        <Route path="/" element={<WorkScreen />}/>
+                        <Route path="/account" element={<AccountScreen />}/>
+                        <Route path="/admin" element={<ADminScreen />}/>
+                    </Routes>
+      </BrowserRouter>
     </div>
   );
 }
