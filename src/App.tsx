@@ -7,6 +7,8 @@ import { mainListItems } from './components/ListItems';
 import WorkScreen from './screens/WorkScreen';
 import AccountScreen from './screens/AccountScreen';
 import ADminScreen from './screens/AdminScreen';
+import LogIn from './screens/LoginScreen';
+import SignUp from './screens/SignupScreen';
 
 function App() {
 
@@ -28,6 +30,8 @@ function App() {
         </ThemeProvider>
 
         <Routes>
+          <Route path="/login" element={<LogIn />}/>
+          <Route path="/signup" element={<SignUp />}/>
           <Route path="/" element={<WorkScreen />}/>
           <Route path="/account" element={<AccountScreen />}/>
           <Route path="/admin" element={<ADminScreen />}/>
